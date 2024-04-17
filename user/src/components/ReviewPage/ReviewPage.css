@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&desplay=swap");
+
+.testimonials-content {
+  gap: 3;
+
+}
+
+.section-header .title {
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #00adb5;
+  line-height: 1.2;
+  margin: 10px;
+}
+
+.testimonials {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+}
+
+.testimonials-item {
+  /* background: hsl(0, 0%, 100%); */
+  box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.2),
+    15px 15px 15px rgba(0, 0, 0, 0.1),
+  inset -5px -5px 5px rgba(255, 255, 255, 0.2),
+  inset  5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.testimonials-item .info {
+  display: flex;
+  align-items: center;
+}
+
+.testimonials-item img {
+  max-width: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.testimonials-item .name {
+  font: size 24px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: black;
+  line-height: 1.2;
+}
+
+.testimonials-item .job {
+  text-transform: capitalize;
+  color: hsl(0, 2%, 58%);
+}
+
+.testimonials-item p {
+  margin-top: 20px;
+  color: hsl(0, 0%, 40%);
+}
+
+.testimonials-item .rating {
+  margin-top: 15px;
+  font-size: 14px;
+  color: hsl(36, 88%, 66%);
+}
