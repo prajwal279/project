@@ -18,7 +18,7 @@ const ProductInput = () => {
           type="text"
           value={productLink}
           onChange={(e) => setProductLink(e.target.value)}
-          placeholder="Enter product link"
+          placeholder="Enter product name"
         />
         <button type="submit">Submit</button>
       </form>

@@ -20,7 +20,14 @@ const ReviewPage = () => {
 
   const { setLoading } = useContext(UserContext);
 
-
+  //  try{
+  //   const response=await fetch('http://192.168.85.160',{
+  //     method:'POST',
+  //     headers:{
+  //       'Content-type'
+  //     }
+  //   })
+  //  }
   // const ReviewPage = () => {
   //   const [summary, setSummary] = useState({
   //     rating:'',
@@ -38,17 +45,29 @@ const ReviewPage = () => {
 
     // Fetch reviews from JSON file
     fetchReviews(productUrl);
-  }, [location.search]);
+  }, []);
+
+
 
   const fetchReviews = async (productUrl) => {
     try {
       setLoading(true)
+      // axios.post("http://192.168.85.160:8000", { input: "productUrl" })
+
+      // axios.post("http://192.168.29.136:8000/s", {"a": "b"} ).then(newres => {
+      //     console.log(newres)
+      //   });
+
+      // console.log('hello');
 
       axios.post("http://localhost:5000/send_input", { input: productUrl }).then(res => {
-        console.log(res.data)
+        // console.log(res.data);
         setData(res.data)
+        console.log(res.data)
         setLoading(false)
+
         // console.log("Hii"+JSON.stringify(data[0]).review)
+        
       })
       // fetch("http://localhost:5000/send_input",
       //   {
@@ -61,6 +80,8 @@ const ReviewPage = () => {
       //   })
       //   .then(function (res) { console.log(res) })
       //   .catch(function (res) { console.log(res) })
+
+
     } catch (error) {
       console.error("Error fetching reviews:", error);
     }
@@ -116,64 +137,68 @@ const ReviewPage = () => {
         <div>
           <div >
             <h2 className="text-2xl text-gray-600 font-medium" >Positive Review</h2>
-            <div  className="m-3">
-              {/* {testSummary["positive"]} */}
-              {data?.summary.key1}
+            <div className="m-3">
+              {/* {testSummary["positive"]} */
+              }
+              {data?.summary.positive}
             </div>
+
           </div>
+
           <div >
             <h2 className="text-2xl text-gray-600 font-medium" >Negetive Review</h2>
             <div className="m-3">
-              {data?.summary.key2}
-
-              {/* {testSummary["negetive"]} */}
-            </div>
-          </div>
-
-          <div >
-            <h2 className="text-2xl text-gray-600 font-medium">Review Summary <br/> ⭐⭐ </h2>
-            <div  className="m-3">
-              {/* {testSummary["1-star"]} */}
-              {data?.summary.key1}
+              {data?.summary.negative}
 
             </div>
           </div>
 
           <div >
-            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br/>⭐⭐ </h2>
-            <div  className="m-3" >
-              {/* {testSummary["2-star"]} */}
-              {data?.summary.key1}
-
-            </div>
-          </div>
-
-          <div >
-            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br/>⭐⭐⭐ </h2>
-            <div className="m-3" >
-              {/* {testSummary["3-star"]} */}
-              {data?.summary.key1}
-
-            </div>
-          </div>
-
-          <div >
-            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary  <br/> ⭐⭐⭐⭐ </h2>
-            <div className="m-3" >
-              {/* {testSummary["4-star"]} */}
-              {data?.summary.key1}
-
-            </div>
-          </div>
-
-          <div >
-            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br/> ⭐⭐⭐⭐⭐ </h2>
+            <h2 className="text-2xl text-gray-600 font-medium">Review Summary <br /> ⭐ </h2>
             <div className="m-3">
-              {/* {testSummary["5-star"]} */}
-              {data?.summary.key1}
+
+              {data?.summary.star_1}
 
             </div>
           </div>
+          <div >
+            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br />⭐⭐ </h2>
+            <div className="m-3" >
+              {data?.summary.star_2}
+
+            </div>
+          </div>
+          <div >
+            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br />⭐⭐⭐ </h2>
+            <div className="m-3" >
+              {data?.summary.star_3}
+
+            </div>
+          </div>
+
+          <div >
+            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary  <br /> ⭐⭐⭐⭐ </h2>
+            <div className="m-3" >
+              {data?.summary.star_4}
+
+            </div>
+          </div>
+
+          <div >
+            <h2 className="text-2xl text-gray-600 font-medium" >Review Summary <br /> ⭐⭐⭐⭐⭐ </h2>
+            <div className="m-3">
+              {data?.summary.star_5}
+
+            </div>
+          </div>
+          {/* 
+          
+
+          
+
+          
+
+          */}
         </div>
 
       </div>
